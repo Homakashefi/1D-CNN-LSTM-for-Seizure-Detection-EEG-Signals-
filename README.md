@@ -10,6 +10,7 @@ This project implements a deep learning-based model for epileptic seizure detect
 - [Dependencies](#dependencies)
 - [Datasets](#datasets)
 - [Running the Code](#running-the-code)
+- [Script Details](#script-details)
 
 ## Description
 
@@ -116,4 +117,35 @@ Ensure that these datasets are available and loaded correctly for training and t
 
 1. Set up your virtual environment and install the dependencies.
 2. Update paths for the datasets if required.
-3. Run the `Main.py` script to start the model training and evaluation.
+3. Run the code as follows:
+    ```bash
+    python Main.py
+    ```
+
+This will guide you through the dataset selection and classification type process.
+
+## Script Details
+
+### `Baseline_models.py`
+This script provides baseline machine learning models (SVM, MLP, CNN, KNN, and Gaussian Naive Bayes) for EEG signal classification. It performs the following tasks:
+- Preprocessing the data using **StandardScaler**.
+- Splitting the data into training and testing sets.
+- Training the models and calculating their accuracy.
+
+### `ML_Classifiers_Training_Validation.py`
+This script defines the training process for multiple machine learning classifiers, including:
+- **SVC** (Support Vector Classifier)
+- **KNN** (K-Nearest Neighbors)
+- **Random Forest** and **Gradient Boosting**
+- **MLP** (Multi-Layer Perceptron)
+- **Gaussian Naive Bayes**
+It also calculates several evaluation metrics like accuracy, F1 score, Matthews Correlation Coefficient (MCC), and others. The script includes:
+- **Cross-validation** using K-Fold.
+- **ROC Curve** and evaluation of multi-class classification.
+
+### `Time_Frequency_Domain_Analysis.py`
+This script performs **Time-Frequency Domain** feature extraction using **Welch's Method** and calculates important statistical features, including:
+- **Mean Frequency** and **Median Frequency**.
+It processes the EEG data by extracting both time-domain and frequency-domain features, then splits the dataset into training and testing sets for model evaluation.
+
+Each script plays an essential role in the EEG signal classification pipeline, from feature extraction and model training to evaluation and visualization.
